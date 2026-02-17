@@ -28,7 +28,7 @@ const displayProducts = (products, containerId, limit = null) => {
         const card = document.createElement("div")
 
         card.innerHTML = `
-        <div class="card w-72 shadow-md">
+        <div class="card w-full max-w-xs shadow-md mx-auto">
           <figure class="bg-gray-200 w-full h-[250px]">
             <img
               src="${product.image}"
@@ -83,8 +83,11 @@ const displayCategories = (categories) => {
     const container = document.getElementById("category-container");
     container.innerHTML = "";
 
-    categories.forEach(cat => {
+    const AllCategories = ["All", ...categories];
+
+    AllCategories.forEach(cat => {
         const btn = document.createElement("button");
+
 
         const capitalized =
             cat.charAt(0).toUpperCase() + cat.slice(1);
@@ -100,6 +103,7 @@ const displayCategories = (categories) => {
 
 loadCategories();
 
+document.getElementById("year").innerText = new Date().getFullYear();
 
 
 
